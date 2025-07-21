@@ -19,6 +19,7 @@ import {
   BookUser,
   PlusCircle,
   Mic,
+  Shield,
 } from 'lucide-react';
 import { NavLink, useLocation } from 'react-router-dom';
 
@@ -33,15 +34,18 @@ const navLinks = [
   { href: '/social', label: 'Social', icon: Users },
   { href: '/notifications', label: 'Notifications', icon: Bell },
   { href: '/live-notes', label: 'Live Meeting Notes', icon: Mic },
-  // Role-specific links are handled separately now
 ];
 
 const studentNavLinks = [
   { href: '/my-classes', label: 'My Classes', icon: BookUser },
 ];
 
+const adminNavLinks = [
+  { href: '/admin', label: 'Admin Panel', icon: Shield },
+];
+
 const Navbar = () => {
-  const { user, role, signOut, loading } = useAuth() as any;
+  const { user, role, signOut, loading, isAdmin, fullName } = useAuth() as any;
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
@@ -112,6 +116,14 @@ const Navbar = () => {
             </>
           )}
 
+          {isAdmin && (
+            <>
+              <hr className="my-4 border-gray-700" />
+              {adminNavLinks.map((link) => (
+                <NavItem key={link.href} link={link} isCollapsed={isCollapsed} />
+              ))}
+            </>
+          )}
         </nav>
 
         <div className="p-4 border-t border-gray-700">
@@ -120,7 +132,7 @@ const Navbar = () => {
               <User className="w-10 h-10 rounded-full bg-gray-600 p-2" />
               {!isCollapsed && (
                 <div className="ml-3">
-                  <p className="font-semibold text-sm">{user.email}</p>
+                  <p className="font-semibold text-sm">{fullName || user.email}</p>
                    <button
                     onClick={handleSignOut}
                     className="flex items-center text-sm text-gray-400 hover:text-red-500 transition-colors"
@@ -166,6 +178,14 @@ const Navbar = () => {
                   ))}
                 </>
               )}
+              {isAdmin && (
+                <>
+                  <hr className="my-4 border-gray-700" />
+                  {adminNavLinks.map((link) => (
+                    <MobileNavItem key={link.href} link={link} />
+                  ))}
+                </>
+              )}
             </div>
 
             <div className="mt-auto">
@@ -173,7 +193,7 @@ const Navbar = () => {
                 <div className="flex items-center">
                   <User className="w-10 h-10 rounded-full bg-gray-600 p-2" />
                   <div className="ml-3">
-                    <p className="font-semibold text-sm">{user.email}</p>
+                    <p className="font-semibold text-sm">{fullName || user.email}</p>
                     <button
                       onClick={handleSignOut}
                       className="flex items-center text-sm text-gray-400 hover:text-red-500 transition-colors"
