@@ -8,14 +8,24 @@ import { Ionicons } from '@expo/vector-icons';
 
 export default function ProfileScreen() {
     const [user, setUser] = useState<any>(null);
+    const [profile, setProfile] = useState<any>(null);
 
     useEffect(() => {
-        loadUser();
+        loadData();
     }, []);
 
-    const loadUser = async () => {
-        const { data } = await supabase.auth.getUser();
-        setUser(data.user);
+    const loadData = async () => {
+        const { data: { user } } = await supabase.auth.getUser();
+        setUser(user);
+
+        if (user) {
+            const { data } = await supabase
+                .from('user_profiles')
+                .select('*')
+                .eq('id', user.id)
+                .single();
+            setProfile(data);
+        }
     };
 
     const handleSignOut = async () => {
@@ -29,7 +39,7 @@ export default function ProfileScreen() {
                     style: 'destructive',
                     onPress: async () => {
                         await supabase.auth.signOut();
-                        router.replace('/');
+                        router.replace('/landing');
                     },
                 },
             ]
@@ -46,17 +56,17 @@ export default function ProfileScreen() {
             >
                 <View style={styles.avatarContainer}>
                     <LinearGradient
-                        colors={['#00f3ff', '#ff00ff']}
+                        colors={[Colors.dark.primary, Colors.dark.secondary]}
                         start={{ x: 0, y: 0 }}
                         end={{ x: 1, y: 1 }}
                         style={styles.avatar}
                     >
                         <Text style={styles.avatarText}>
-                            {user?.email?.charAt(0).toUpperCase() || 'U'}
+                            {profile?.full_name?.charAt(0).toUpperCase() || user?.email?.charAt(0).toUpperCase() || 'U'}
                         </Text>
                     </LinearGradient>
                 </View>
-                <Text style={styles.name}>{user?.user_metadata?.name || 'Student'}</Text>
+                <Text style={styles.name}>{profile?.full_name || 'Student'}</Text>
                 <Text style={styles.email}>{user?.email || 'student@example.com'}</Text>
             </LinearGradient>
 
