@@ -11,6 +11,7 @@ export function LandingAuth() {
 
   const [isSignUp, setIsSignUp] = useState(true);
   const [formLoading, setFormLoading] = useState(false);
+  const [inlineError, setInlineError] = useState<string | null>(null);
   const [googleLoading, setGoogleLoading] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
@@ -37,31 +38,42 @@ export function LandingAuth() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    if (formLoading) return;
+    setInlineError(null);
     setFormLoading(true);
 
     try {
       if (isSignUp) {
-        const { error } = await signUp(formData.email, formData.password, {
+        const { data, error } = await signUp(formData.email, formData.password, {
           full_name: formData.full_name,
           grade: selectedRole === 'student' ? formData.grade : undefined,
           school: formData.school,
           role: selectedRole
         });
         if (error) {
-          showToast(error.message, 'error');
+          setInlineError(error.message || 'Sign up failed');
+          showToast(error.message || 'Sign up failed', 'error');
         } else {
-          showToast('Account created successfully! Welcome to ElevenFolks!', 'success');
+          const needsEmailConfirm = !data?.session;
+          if (needsEmailConfirm) {
+            showToast('Check your email to confirm your account, then sign in.', 'success');
+          } else {
+            showToast('Account created successfully! Welcome to ElevenFolks!', 'success');
+          }
         }
       } else {
         const { error } = await signIn(formData.email, formData.password);
         if (error) {
-          showToast(error.message, 'error');
+          setInlineError(error.message || 'Sign in failed');
+          showToast(error.message || 'Sign in failed', 'error');
         } else {
           showToast('Welcome back!', 'success');
         }
       }
     } catch (error: any) {
-      showToast(error.message || 'An error occurred', 'error');
+      const message = error?.message || 'An error occurred';
+      setInlineError(message);
+      showToast(message, 'error');
     } finally {
       setFormLoading(false);
     }
@@ -186,6 +198,13 @@ export function LandingAuth() {
               {formLoading ? 'PROCESSING...' : (isSignUp ? 'CREATE ACCOUNT' : 'SIGN IN')}
               <ArrowRight className="h-6 w-6 stroke-[3px]" />
             </button>
+
+            {inlineError && (
+              <div className="border-4 border-black bg-neo-accent text-black p-4 shadow-[4px_4px_0px_0px_#000]">
+                <p className="font-black uppercase tracking-widest text-xs">Auth error</p>
+                <p className="font-bold mt-1 break-words">{inlineError}</p>
+              </div>
+            )}
           </form>
 
           <div className="mt-8 text-center">

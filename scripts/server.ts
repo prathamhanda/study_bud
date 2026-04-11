@@ -14,16 +14,21 @@ const __dirname = path.dirname(__filename);
 
 // Supabase Admin Client (for reliable updates)
 const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
-const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-if (!supabaseUrl || !supabaseKey) {
-    console.error("Missing Supabase credentials in .env. Need at least SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY");
-    process.exit(1);
+const hasSupabaseAdmin = Boolean(supabaseUrl && supabaseServiceRoleKey);
+
+if (hasSupabaseAdmin) {
+    console.log("Supabase Admin Client initialized for:", supabaseUrl);
+} else {
+    console.warn(
+        "Starting WITHOUT SUPABASE_SERVICE_ROLE_KEY; /api/generate (POST) will be disabled. Add SUPABASE_SERVICE_ROLE_KEY to .env to enable generation."
+    );
 }
 
-console.log("Supabase Admin Client initialized for:", supabaseUrl);
-
-const supabase = createClient(supabaseUrl, supabaseKey);
+const supabase = hasSupabaseAdmin
+    ? createClient(supabaseUrl as string, supabaseServiceRoleKey as string)
+    : null;
 
 const PORT = 3001;
 
@@ -74,11 +79,19 @@ const server = http.createServer(async (req, res) => {
 
     // Ping check for Cloudflare/Uptime
     if (req.method === 'GET' && req.url === '/api/generate') {
-        sendJson(200, { status: 'online' });
+        sendJson(200, { status: 'online', generation: hasSupabaseAdmin ? 'enabled' : 'disabled' });
         return;
     }
 
     if (req.method === 'POST' && req.url === '/api/generate') {
+        if (!supabase) {
+            sendJson(503, {
+                error: 'Server is running in limited mode (missing SUPABASE_SERVICE_ROLE_KEY).',
+                hint: 'Add SUPABASE_SERVICE_ROLE_KEY to .env and restart the server.'
+            });
+            return;
+        }
+
         let body = '';
         req.on('data', chunk => body += chunk.toString());
         req.on('end', async () => {

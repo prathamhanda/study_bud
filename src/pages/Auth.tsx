@@ -6,6 +6,7 @@ import { useToast } from '../hooks/useToast';
 export function Auth() {
   const [isSignUp, setIsSignUp] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [inlineError, setInlineError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -20,25 +21,36 @@ export function Auth() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (loading) return;
+    setInlineError(null);
     setLoading(true);
 
     try {
       if (isSignUp) {
-        const { error } = await signUp(formData.email, formData.password, {
+        const { data, error } = await signUp(formData.email, formData.password, {
           full_name: formData.full_name,
           grade: selectedRole === 'student' ? formData.grade : null,
           school: formData.school,
           role: selectedRole
         });
-        if (error) throw error;
-        showToast('Account created successfully!', 'success');
+        if (error) {
+          setInlineError(error.message || 'Sign up failed');
+          throw error;
+        }
+        const needsEmailConfirm = !data?.session;
+        showToast(needsEmailConfirm ? 'Check your email to confirm, then sign in.' : 'Account created successfully!', 'success');
       } else {
         const { error } = await signIn(formData.email, formData.password);
-        if (error) throw error;
+        if (error) {
+          setInlineError(error.message || 'Sign in failed');
+          throw error;
+        }
         showToast('Welcome back!', 'success');
       }
     } catch (error: any) {
-      showToast(error.message, 'error');
+      const message = error?.message || 'An error occurred';
+      setInlineError(message);
+      showToast(message, 'error');
     } finally {
       setLoading(false);
     }
@@ -94,6 +106,12 @@ export function Auth() {
                   <button
                     type="button"
                     onClick={() => setSelectedRole('teacher')}
+
+              {inlineError && (
+                <div className="rounded-xl bg-black/50 border border-white/10 p-4 text-sm text-red-200">
+                  {inlineError}
+                </div>
+              )}
                     className={`flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${selectedRole === 'teacher'
                         ? 'bg-neon-purple text-white shadow-lg shadow-neon-purple/20'
                         : 'text-gray-400 hover:text-white hover:bg-white/5'
