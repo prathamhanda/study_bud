@@ -30,9 +30,9 @@ export const MessageList: React.FC<MessageListProps> = ({
     formatTime
 }) => {
     return (
-        <div className="flex-1 overflow-y-auto p-6 space-y-8 bg-neo-bg scrollbar-thin scrollbar-thumb-black scrollbar-track-transparent">
+        <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-5 bg-neo-bg scrollbar-thin scrollbar-thumb-black scrollbar-track-transparent">
             {messages.map((message) => (
-                <div key={message.id} className={`flex gap-5 ${message.role === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
+                <div key={message.id} className={`flex gap-3 ${message.role === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
                     {/* Avatar */}
                     <div className={`flex-shrink-0 w-10 h-10 border-4 border-black flex items-center justify-center ${message.role === 'user'
                         ? 'bg-black -rotate-6'
@@ -50,12 +50,12 @@ export const MessageList: React.FC<MessageListProps> = ({
                         {/* Label (Mobile/Optional) */}
                         <div className="mb-2 flex items-center gap-2">
                             <span className="text-[10px] font-black uppercase tracking-widest bg-black text-white px-2 py-0.5">
-                                {message.role === 'user' ? 'STUDENT' : (isMentor ? title.toUpperCase() : 'ELEVENFOLKS AI')}
+                                {message.role === 'user' ? 'STUDENT' : (isMentor ? title.toUpperCase() : 'STUDYBUD AI')}
                             </span>
                         </div>
 
                         {/* Bubble */}
-                        <div className={`p-5 border-4 border-black shadow-[6px_6px_0px_0px_#000] relative ${message.role === 'user'
+                        <div className={`p-4 sm:p-5 border-4 border-black shadow-[4px_4px_0px_0px_#000] relative ${message.role === 'user'
                             ? 'bg-neo-secondary text-black'
                             : 'bg-white text-black'
                             }`}>
