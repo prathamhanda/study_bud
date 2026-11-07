@@ -1,0 +1,11 @@
+# StudyBud Manim Video Generation - Python Dependencies
+# Used by Dockerfile for the video generation server
+
+manim==0.18.0
+ffmpeg-python==0.2.0
+numpy==1.26.4
+requests==2.31.0
+python-dotenv==1.0.1
+supabase==2.3.4
+pillow==10.2.0
+scipy==1.12.0

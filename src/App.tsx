@@ -32,7 +32,7 @@ import CBSEExamSimulator from './pages/CBSEExamSimulator';
 import CUETSimulator from './pages/CUETSimulator';
 import CBSEExamSession from './pages/CBSEExamSession';
 import VAPITestComponent from './components/VAPITestComponent';
-import CUETSyllabusDev from './pages/CUETSyllabusDev';
+import CUETSyllabus from './pages/CUETSyllabus';
 import VAPISetupTest from './components/VAPISetupTest';
 import VoiceSelector from './components/VoiceSelector';
 import ElliotVoiceTest from './components/ElliotVoiceTest';
@@ -200,7 +200,7 @@ function AppContent() {
             <Route path="/cbse-simulator" element={<CBSEExamSimulator />} />
             <Route path="/cbse-exam-session" element={<CBSEExamSession />} />
             <Route path="/cuet-simulator" element={<CUETSimulator />} />
-            <Route path="/dev/cuet-syllabus" element={<CUETSyllabusDev />} />
+            <Route path="/cuet-syllabus" element={<CUETSyllabus />} />
             <Route path="/vapi-test" element={<VAPITestComponent />} />
             <Route path="/vapi-setup" element={<VAPISetupTest />} />
             <Route path="/voice-selector" element={<VoiceSelector />} />
