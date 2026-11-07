@@ -234,7 +234,7 @@ adb logcat > crash.log
 Look for lines with:
 - `FATAL EXCEPTION`
 - `AndroidRuntime`
-- `Process: com.elevenfolks.studybud`
+- `Process: com.studybud.app`
 
 The error will be right before the crash!
 

@@ -1,4 +1,4 @@
-# StudyBud / elevenfolks — Codebase Explained
+# StudyBud — Codebase Explained
 
 Generated: 2026-01-16
 

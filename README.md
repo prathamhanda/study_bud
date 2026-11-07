@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🎓 StudyBud (by ElevenFolks)
+# 🎓 StudyBud
 <a href="https://elevenfolks.vercel.app">
 <img src="https://img.shields.io/badge/StudyBud-Your%20AI%20Study%20Partner-3B82F6?style=for-the-badge&logo=react&logoColor=white" alt="StudyBud" />
 </a>
@@ -23,7 +23,7 @@
 
 ## 🎯 What is StudyBud?
 
-StudyBud (internal codename: ElevenFolks) is a **comprehensive AI-powered educational ecosystem**. It bridges the gap between static textbooks and hyper-personalized learning by combining an offline-capable React PWA, a React Native mobile app, and a robust Supabase backend. It features **state-of-the-art automated math/science animations** via Python's Manim framework and is powered heavily by **Google Gemini** for semantic AI tutoring.
+StudyBud is a **comprehensive AI-powered educational ecosystem**. It bridges the gap between static textbooks and hyper-personalized learning by combining an offline-capable React PWA, a React Native mobile app, and a robust Supabase backend. It features **state-of-the-art automated math/science animations** via Python's Manim framework and is powered heavily by **Google Gemini** for semantic AI tutoring.
 
 <table>
 <tr>
@@ -131,6 +131,57 @@ npx expo start
 ```
 
 Web app available at **http://localhost:5173**. Video Gen API at **http://localhost:3001**. 
+
+---
+
+## 🛠️ Run it locally
+
+1. **Get the code**
+   ```bash
+   git clone https://github.com/prathamhanda/study_bud.git
+   cd study_bud
+   ```
+
+2. **Set up environment**
+   A `.env` file already exists in this repo with the required keys (Supabase, Gemini, etc.).  
+   If you're starting fresh, copy `env.template` to `.env` and fill in your own keys.
+
+3. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+4. **Start the web app**
+   ```bash
+   npm run dev
+   ```
+   Open **http://localhost:5173**
+
+5. **Start the video backend (optional — for AI-generated video lessons)**
+   ```bash
+   npm run serve-gen
+   ```
+   This runs on **http://localhost:3001**
+
+6. **(Optional) Run the mobile app**
+   ```bash
+   cd studybud-mobile
+   npm install
+   npx expo start
+   ```
+
+---
+
+## 🔐 Test login credentials
+
+There are **no hardcoded demo accounts** in this repo — authentication uses Supabase (email/password or Google Sign-In).
+
+To create a test account:
+1. Open the app at **http://localhost:5173**
+2. Click **Sign up** and create an account with any email + password
+3. Confirm your email (if required), then log in
+
+To make a test account an **admin/teacher**, set the `is_admin` flag to `true` in the `user_profiles` table in your Supabase dashboard for that user.
 
 ---
 
@@ -379,6 +430,6 @@ We welcome contributions to expand the CBSE/CUET pipelines or improve the UI!
 
 **Engineered with ❤️ for the future of education**
 
-[⬆ Back to top](#-studybud-by-elevenfolks)
+[⬆ Back to top](#-studybud)
 
 </div>

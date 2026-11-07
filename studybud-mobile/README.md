@@ -1,6 +1,6 @@
-# ElevenFolks Mobile
+# StudyBud Mobile
 
-A React Native mobile app for ElevenFolks learning platform, built with Expo and TypeScript.
+A React Native mobile app for StudyBud learning platform, built with Expo and TypeScript.
 
 ## Features
 
