@@ -33,7 +33,7 @@ export default function Onboarding() {
     <div className="min-h-screen animated-gradient flex items-center justify-center p-6">
       <div className="w-full max-w-md bg-gray-900/70 backdrop-blur rounded-2xl p-6 shadow-2xl border border-white/10">
         <h1 className="text-2xl md:text-3xl font-bold text-white mb-2 text-center">Welcome!</h1>
-        <p className="text-gray-300 text-center mb-6">Tell us how you'll use ElevenFolks</p>
+        <p className="text-gray-300 text-center mb-6">Tell us how you'll use StudyBud</p>
 
         <label className="block text-sm text-gray-300 mb-2">Your full name</label>
         <input

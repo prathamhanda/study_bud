@@ -112,12 +112,12 @@ const Navbar = () => {
         <div className="h-24 flex items-center px-6 border-b-4 border-black bg-neo-secondary">
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 bg-neo-accent border-4 border-black shadow-[4px_4px_0px_0px_#000] flex items-center justify-center">
-              <span className="text-2xl font-black text-black">EF</span>
+              <span className="text-2xl font-black text-black">SB</span>
             </div>
             {!isCollapsed && (
               <div>
                 <h1 className="text-xl font-black text-black leading-none">STUDYBUD</h1>
-                <p className="text-[10px] font-black tracking-[0.2em] text-black/60">BY ELEVENFOLKS</p>
+                <p className="text-[10px] font-black tracking-[0.2em] text-black/60">BY STUDYBUD</p>
               </div>
             )}
           </div>
@@ -190,7 +190,7 @@ const Navbar = () => {
             <div className="flex items-center justify-between mb-12 border-b-4 border-black pb-6">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-neo-accent border-4 border-black shadow-[4px_4px_0px_0px_#000] flex items-center justify-center">
-                  <span className="text-2xl font-black text-black">EF</span>
+                  <span className="text-2xl font-black text-black">SB</span>
                 </div>
                 <h1 className="text-3xl font-black text-black">STUDYBUD</h1>
               </div>

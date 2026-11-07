@@ -132,7 +132,7 @@ export function CalendarSync() {
             <h1 className="text-3xl md:text-4xl font-bold text-white">Calendar <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-green to-emerald-400">Sync</span></h1>
           </div>
           <p className="text-gray-400 max-w-xl mx-auto mb-8 text-lg">
-            Connect your Google Calendar to automatically import exam dates and deadlines into ElevenFolks.
+            Connect your Google Calendar to automatically import exam dates and deadlines into StudyBud.
           </p>
           <button
             onClick={() => login()}

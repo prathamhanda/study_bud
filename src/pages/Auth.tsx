@@ -77,7 +77,7 @@ export function Auth() {
             </div>
           </div>
           <h1 className="text-4xl font-bold text-white mb-2 tracking-tight">
-            ElevenFolks
+            StudyBud
           </h1>
           <p className="text-neon-blue font-medium tracking-wider text-sm uppercase mb-4">Future Learning</p>
           <p className="text-gray-400">

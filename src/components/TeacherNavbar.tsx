@@ -70,7 +70,7 @@ const TeacherNavbar = () => {
           {!isCollapsed && (
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-neo-accent border-2 border-white flex items-center justify-center -rotate-3">
-                <span className="text-xl font-black italic">EF</span>
+                <span className="text-xl font-black italic">SB</span>
               </div>
               <span className="text-xl font-black uppercase tracking-tighter">TEACHER</span>
             </div>
@@ -116,7 +116,7 @@ const TeacherNavbar = () => {
       <header className="md:hidden fixed top-0 left-0 w-full bg-neo-bg p-4 z-50 flex items-center justify-between border-b-4 border-black shadow-[0_4px_0px_0px_#000]">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 bg-neo-accent border-4 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_#000]">
-            <span className="text-xl font-black italic text-white">EF</span>
+            <span className="text-xl font-black italic text-white">SB</span>
           </div>
           <span className="text-2xl font-black uppercase tracking-tighter italic">TEACHER</span>
         </div>
@@ -140,7 +140,7 @@ const TeacherNavbar = () => {
             <div className="flex justify-between items-center mb-10 pb-6 border-b-4 border-black">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-neo-accent border-4 border-black flex items-center justify-center shadow-[4px_4px_0px_0px_#000]">
-                  <span className="text-2xl font-black text-white italic">EF</span>
+                  <span className="text-2xl font-black text-white italic">SB</span>
                 </div>
                 <span className="text-3xl font-black uppercase tracking-tighter italic">TEACHER</span>
               </div>
