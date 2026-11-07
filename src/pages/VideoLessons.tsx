@@ -245,7 +245,7 @@ export const VideoLessons = () => {
         }
 
         try {
-            const API_URL = import.meta.env.VITE_VIDEO_GEN_URL || 'https://vikunja.stubud.xyz/api/generate';
+            const API_URL = import.meta.env.VITE_VIDEO_GEN_URL || 'http://localhost:3001/api/generate';
 
             const response = await fetch(API_URL, {
                 method: 'POST',
