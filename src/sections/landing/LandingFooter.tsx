@@ -11,11 +11,11 @@ export function LandingFooter() {
         <div className="flex flex-col items-center">
           {/* Logo Box */}
           <div className="w-16 h-16 bg-neo-accent border-4 border-white flex items-center justify-center shadow-[6px_6px_0px_0px_rgba(255,255,255,0.2)] mb-8 -rotate-2">
-            <span className="text-3xl font-black italic text-white">EF</span>
+            <span className="text-3xl font-black italic text-white">SB</span>
           </div>
 
           <h3 className="text-4xl font-black uppercase tracking-tighter mb-8 italic">
-            ELEVENFOLKS
+            STUDYBUD
           </h3>
 
           <nav className="flex flex-wrap justify-center gap-x-12 gap-y-6 mb-12 font-black uppercase tracking-widest text-lg">
@@ -38,7 +38,7 @@ export function LandingFooter() {
           </div>
 
           <div className="w-full border-t-4 border-white/20 pt-10 flex flex-col md:flex-row items-center justify-between gap-6">
-            <p className="font-bold text-white/40 uppercase tracking-widest italic">&copy; {new Date().getFullYear()} ElevenFolks. All rights reserved.</p>
+            <p className="font-bold text-white/40 uppercase tracking-widest italic">&copy; {new Date().getFullYear()} StudyBud. All rights reserved.</p>
             <div className="flex gap-8 font-black uppercase text-xs tracking-widest text-white/60">
               <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
               <a href="#" className="hover:text-white transition-colors">Terms of Service</a>

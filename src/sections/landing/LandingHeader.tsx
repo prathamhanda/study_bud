@@ -16,10 +16,10 @@ export function LandingHeader() {
             {/* Logo */}
             <div className="flex items-center gap-4 group cursor-pointer">
               <div className="w-12 h-12 bg-neo-secondary border-4 border-black flex items-center justify-center shadow-[4px_4px_0px_0px_#000] group-hover:translate-x-[2px] group-hover:translate-y-[2px] group-hover:shadow-none transition-all">
-                <span className="text-2xl font-black italic">EF</span>
+                <span className="text-2xl font-black italic">SB</span>
               </div>
               <span className="text-3xl font-black uppercase tracking-tighter text-black hidden sm:block">
-                ELEVENFOLKS
+                STUDYBUD
               </span>
             </div>
 

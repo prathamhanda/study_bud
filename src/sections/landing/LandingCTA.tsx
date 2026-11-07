@@ -38,7 +38,7 @@ export function LandingCTA() {
             YOUR PRODUCTIVITY?
           </h2>
           <p className="text-black/70 mt-8 text-2xl font-bold max-w-2xl mx-auto italic leading-tight">
-            Join thousands of students already using <span className="underline decoration-neo-secondary decoration-8">ElevenFolks</span> to achieve more.
+            Join thousands of students already using <span className="underline decoration-neo-secondary decoration-8">StudyBud</span> to achieve more.
           </p>
         </div>
 

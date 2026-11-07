@@ -19,7 +19,7 @@ export function LandingBenefits() {
           </h2>
           <p className="text-black/70 mt-6 text-xl font-bold max-w-2xl mx-auto">
             Keep everything in one place, from your plan to practice tests.
-            With <span className="text-black underline decoration-neo-accent decoration-4">ElevenFolks</span>, organize, collaborate, and learn faster.
+            With <span className="text-black underline decoration-neo-accent decoration-4">StudyBud</span>, organize, collaborate, and learn faster.
           </p>
         </div>
 

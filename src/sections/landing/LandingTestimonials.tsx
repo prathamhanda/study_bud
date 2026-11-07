@@ -4,7 +4,7 @@ const testimonials = [
   {
     name: 'Priya Sharma',
     grade: 'Class 12',
-    text: 'ElevenFolks helped me improve my JEE preparation by 40%. The personalized study plans are incredible!',
+    text: 'StudyBud helped me improve my JEE preparation by 40%. The personalized study plans are incredible!',
     color: 'bg-neo-accent'
   },
   {
@@ -28,7 +28,7 @@ const testimonials = [
   {
     name: 'Ananya Iyer',
     grade: 'Class 9',
-    text: 'I used to struggle with organization, but ElevenFolks automated everything for me. Game changer!',
+    text: 'I used to struggle with organization, but StudyBud automated everything for me. Game changer!',
     color: 'bg-neo-secondary'
   }
 ];
@@ -82,7 +82,7 @@ export function LandingTestimonials() {
             WORLDWIDE
           </h2>
           <p className="text-black/60 mt-6 text-xl font-bold max-w-2xl mx-auto">
-            Join thousands of learners who've transformed their study experience with ElevenFolks.
+            Join thousands of learners who've transformed their study experience with StudyBud.
           </p>
         </div>
 

@@ -58,7 +58,7 @@ export function LandingAuth() {
           if (needsEmailConfirm) {
             showToast('Check your email to confirm your account, then sign in.', 'success');
           } else {
-            showToast('Account created successfully! Welcome to ElevenFolks!', 'success');
+            showToast('Account created successfully! Welcome to StudyBud!', 'success');
           }
         }
       } else {
