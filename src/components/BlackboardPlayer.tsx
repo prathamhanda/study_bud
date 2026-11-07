@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Play, X } from 'lucide-react';
 import { supabase } from '../lib/supabase';
-import { OpenAIService } from '../lib/openaiService';
 
 declare global {
   interface Window { ChemDoodle?: any; }
@@ -872,6 +871,7 @@ Rules:
     window.speechSynthesis.cancel();
     if (audioRef.current) {
       audioRef.current.pause();
+      audioRef.current.src = '';
       audioRef.current = null;
     }
 
@@ -880,7 +880,7 @@ Rules:
 
     const subtitlesToPlay = Array.isArray(segment.subtitles) && segment.subtitles.length > 0 ? segment.subtitles : [segment.textToSpeak || ''];
 
-    const speakFallback = async (text: string) => {
+    const speakLine = async (text: string) => {
       await new Promise<void>((resolve) => {
         const utterance = new SpeechSynthesisUtterance(text);
         utterance.rate = 0.92;
@@ -891,28 +891,15 @@ Rules:
       });
     };
 
-
     for (let i = 0; i < subtitlesToPlay.length; i++) {
       if (playbackSessionRef.current !== sessionId || !isPlayingRef.current) return;
       const line = subtitlesToPlay[i];
 
       try {
-        const audioBuffer = await OpenAIService.getInstance().generateSpeech(line);
-        if (!(audioBuffer instanceof ArrayBuffer) || audioBuffer.byteLength === 0) throw new Error('Empty audio');
-        if (playbackSessionRef.current !== sessionId || !isPlayingRef.current) return;
-        const url = URL.createObjectURL(new Blob([audioBuffer], { type: 'audio/mpeg' }));
-        await new Promise<void>((resolve, reject) => {
-          const audio = new Audio(url);
-          audioRef.current = audio;
-          const cleanup = () => { URL.revokeObjectURL(url); audioRef.current = null; };
-          audio.onended = () => { cleanup(); resolve(); };
-          audio.onerror = (e) => { cleanup(); reject(e); };
-          audio.play().catch(err => { cleanup(); reject(err); });
-        });
+        await speakLine(line);
       } catch (e) {
-        console.warn('Audio playback failed, fallback to browser voice:', e);
+        console.warn('Browser speech failed:', e);
         if (playbackSessionRef.current !== sessionId || !isPlayingRef.current) return;
-        await speakFallback(line);
       }
     }
 

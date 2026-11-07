@@ -194,7 +194,7 @@ export function ManimVideoPlayer({ videoUrl, topic, generationId, isPreparing, e
                                     </div>
                                     <span className="text-[10px] font-mono text-white/40 ml-2 uppercase tracking-widest flex items-center gap-2">
                                         <TerminalIcon className="h-3 w-3" />
-                                        elevenfolks-manim-engine --verbose
+                                        studybud-manim-engine --verbose
                                     </span>
                                 </div>
                                 <div
