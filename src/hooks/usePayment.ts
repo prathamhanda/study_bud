@@ -129,6 +129,8 @@ export function usePayment() {
       throw new Error('User not authenticated');
     }
 
+    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://yjdcshkqgzcubniinwoc.supabase.co';
+
     console.log('💳 Creating payment with provider:', paymentData.paymentProvider);
     console.log('💰 Payment details:', paymentData);
     console.log('🔧 Manual override:', manualOverride);
@@ -138,7 +140,7 @@ export function usePayment() {
       if (paymentData.paymentProvider === 'razorpay') {
         console.log('🔄 Creating Razorpay subscription...');
         // Create Razorpay subscription
-        const response = await fetch('https://yjdcshkqgzcubniinwoc.supabase.co/functions/v1/create-razorpay-subscription', {
+        const response = await fetch(`${supabaseUrl}/functions/v1/create-razorpay-subscription`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -162,10 +164,10 @@ export function usePayment() {
         }
       } else {
         console.log('🔄 Creating PayPal subscription...');
-        console.log('📡 PayPal endpoint: https://yjdcshkqgzcubniinwoc.supabase.co/functions/v1/create-paypal-subscription');
+        console.log(`📡 PayPal endpoint: ${supabaseUrl}/functions/v1/create-paypal-subscription`);
         
         // Create PayPal subscription
-        const response = await fetch('https://yjdcshkqgzcubniinwoc.supabase.co/functions/v1/create-paypal-subscription', {
+        const response = await fetch(`${supabaseUrl}/functions/v1/create-paypal-subscription`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

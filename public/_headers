@@ -1,0 +1,46 @@
+# Cloudflare Pages Headers for StudyBud
+# Place in public/ so it gets copied to dist/ on build
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+# Service Worker must be served with correct MIME type and no caching
+/sw.js
+  Content-Type: application/javascript
+  Cache-Control: no-cache, no-store, must-revalidate
+  Service-Worker-Allowed: /
+
+# Manifest and icons
+/manifest.webmanifest
+  Content-Type: application/manifest+json
+  Cache-Control: public, max-age=31536000, immutable
+
+/pwa-*.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/favicon.ico
+  Cache-Control: public, max-age=31536000, immutable
+
+/apple-touch-icon.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/masked-icon.svg
+  Cache-Control: public, max-age=31536000, immutable
+
+# Static assets (JS, CSS, images) - long-term caching with hash filenames
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML - no cache for SPA routing
+/*.html
+  Cache-Control: no-cache, no-store, must-revalidate
+
+# API routes (if using Cloudflare Pages Functions) - CORS for Supabase
+/api/*
+  Access-Control-Allow-Origin: https://yjdcshkqgzcubniinwoc.supabase.co
+  Access-Control-Allow-Methods: GET, POST, OPTIONS
+  Access-Control-Allow-Headers: Content-Type, Authorization, apikey
+  Access-Control-Max-Age: 86400
