@@ -236,7 +236,7 @@ export default function LandingScreen() {
                         contentContainerStyle={styles.testimonialsScroll}
                     >
                         {[
-                            { name: 'Priya Sharma', grade: 'Class 12', text: 'ElevenFolks improved my prep by 40%. The AI plans are incredible!' },
+                            { name: 'Priya Sharma', grade: 'Class 12', text: 'StudyBud improved my prep by 40%. The AI plans are incredible!' },
                             { name: 'Arjun Patel', grade: 'Class 10', text: 'The AI flashcards made studying so much more effective. Highly recommend!' },
                             { name: 'Sneha Reddy', grade: 'Class 11', text: 'Connect with other students. We motivate each other every day!' }
                         ].map((t, i) => (
@@ -324,7 +324,7 @@ export default function LandingScreen() {
                     <Text style={styles.footerText}>
                         🚀 Powered by AI • 🔒 Secure & Private • 📱 Available Everywhere
                     </Text>
-                    <Text style={styles.copyrightText}>© 2024 ElevenFolks. All rights reserved.</Text>
+                    <Text style={styles.copyrightText}>© 2024 StudyBud. All rights reserved.</Text>
                 </View>
             </ScrollView>
         </View>

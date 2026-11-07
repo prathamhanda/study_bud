@@ -288,7 +288,7 @@ export default function PlayerScreen() {
                             <Ionicons name="shield-checkmark" size={14} color={Colors.dark.accent} />
                             <Text style={styles.footerBadgeText}>AI Verified Lesson</Text>
                         </View>
-                        <Text style={styles.footerTagline}>Generated with ElevenFolks Engine</Text>
+                        <Text style={styles.footerTagline}>Generated with StudyBud Engine</Text>
                     </LinearGradient>
                 </View>
             </LinearGradient>

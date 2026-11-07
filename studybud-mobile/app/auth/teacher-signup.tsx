@@ -86,7 +86,7 @@ export default function TeacherSignupScreen() {
                             <Ionicons name="school" size={40} color={Colors.dark.accent} />
                         </View>
                         <Text style={styles.title}>Create Teacher Account</Text>
-                        <Text style={styles.subtitle}>Join ElevenFolks as an educator</Text>
+                        <Text style={styles.subtitle}>Join StudyBud as an educator</Text>
                     </LinearGradient>
 
                     {/* Form */}

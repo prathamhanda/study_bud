@@ -103,7 +103,7 @@ function AppContent() {
       <div className="min-h-screen bg-neo-bg flex flex-col items-center justify-center p-6">
         <div className="w-24 h-24 border-8 border-black border-t-neo-accent animate-spin" />
         <div className="mt-12 text-center p-8 bg-white border-4 border-black shadow-[8px_8px_0px_0px_#000]">
-          <h2 className="text-4xl font-black uppercase tracking-tighter">ELEVENFOLKS</h2>
+          <h2 className="text-4xl font-black uppercase tracking-tighter">STUDYBUD</h2>
           <p className="text-black/60 font-bold uppercase tracking-widest text-sm mt-2">Initializing Experience...</p>
         </div>
       </div>
