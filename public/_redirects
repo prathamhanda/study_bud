@@ -8,5 +8,5 @@
 # /old-path  /new-path  301
 
 # API routes (if using Pages Functions) - proxy to Supabase Edge Functions
-# /api/generate-study-plan  https://yjdcshkqgzcubniinwoc.supabase.co/functions/v1/generate-study-plan  200
-# /api/cuet-web-search  https://yjdcshkqgzcubniinwoc.supabase.co/functions/v1/cuet-web-search  200
+# /api/generate-study-plan  https://pibmsdpxvqkbvgdjpips.supabase.co/functions/v1/generate-study-plan  200
+# /api/cuet-web-search  https://pibmsdpxvqkbvgdjpips.supabase.co/functions/v1/cuet-web-search  200

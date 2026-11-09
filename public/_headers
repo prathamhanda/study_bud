@@ -40,7 +40,7 @@
 
 # API routes (if using Cloudflare Pages Functions) - CORS for Supabase
 /api/*
-  Access-Control-Allow-Origin: https://yjdcshkqgzcubniinwoc.supabase.co
+  Access-Control-Allow-Origin: https://pibmsdpxvqkbvgdjpips.supabase.co
   Access-Control-Allow-Methods: GET, POST, OPTIONS
   Access-Control-Allow-Headers: Content-Type, Authorization, apikey
   Access-Control-Max-Age: 86400

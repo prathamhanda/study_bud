@@ -14,15 +14,18 @@ create table if not exists public.cuet_syllabi (
 alter table public.cuet_syllabi enable row level security;
 
 -- Allow authenticated users to read
-create policy if not exists cuet_syllabi_select on public.cuet_syllabi
-for select using (true);
+DROP POLICY IF EXISTS cuet_syllabi_select ON public.cuet_syllabi;
+CREATE POLICY cuet_syllabi_select ON public.cuet_syllabi
+    FOR SELECT USING (true);
 
 -- Allow authenticated users to insert/update (can be restricted to roles later)
-create policy if not exists cuet_syllabi_ins on public.cuet_syllabi
-for insert with check (auth.role() = 'authenticated');
+DROP POLICY IF EXISTS cuet_syllabi_ins ON public.cuet_syllabi;
+CREATE POLICY cuet_syllabi_ins ON public.cuet_syllabi
+    FOR INSERT WITH CHECK (auth.role() = 'authenticated');
 
-create policy if not exists cuet_syllabi_upd on public.cuet_syllabi
-for update using (auth.role() = 'authenticated');
+DROP POLICY IF EXISTS cuet_syllabi_upd ON public.cuet_syllabi;
+CREATE POLICY cuet_syllabi_upd ON public.cuet_syllabi
+    FOR UPDATE USING (auth.role() = 'authenticated');
 
 -- Update updated_at on modification
 create or replace function public.set_updated_at()

@@ -32,7 +32,7 @@ TXT     _acme-challenge.studybud  <auto>       🟠 Proxied (for SSL)
 #### Production Environment
 ```bash
 VITE_APP_URL=https://studybud.prathamh.com
-VITE_SUPABASE_URL=https://yjdcshkqgzcubniinwoc.supabase.co
+VITE_SUPABASE_URL=https://pibmsdpxvqkbvgdjpips.supabase.co
 VITE_SUPABASE_ANON_KEY=<your-anon-key>
 VITE_GOOGLE_CLIENT_ID=<your-google-client-id>
 VITE_GEMINI_API_KEY=<your-gemini-key>
@@ -44,7 +44,7 @@ VITE_VIDEO_GEN_URL=https://<your-video-gen-domain>/api/generate
 #### Preview Environment (optional)
 ```bash
 VITE_APP_URL=https://<branch>.studybud.pages.dev
-VITE_SUPABASE_URL=https://yjdcshkqgzcubniinwoc.supabase.co
+VITE_SUPABASE_URL=https://pibmsdpxvqkbvgdjpips.supabase.co
 VITE_SUPABASE_ANON_KEY=<your-anon-key>
 VITE_GOOGLE_CLIENT_ID=<your-google-client-id>
 VITE_GEMINI_API_KEY=<your-gemini-key>
@@ -85,18 +85,19 @@ Redirect URLs:
   - https://studybud.prathamh.com/**
   - http://localhost:5173/** (dev)
 ```
+**Project:** `pibmsdpxvqkbvgdjpips` (Dashboard: https://supabase.com/dashboard/project/pibmsdpxvqkbvgdjpips)
 
 #### 3. Razorpay Webhook URL (Razorpay Dashboard > Webhooks)
 ```
-https://yjdcshkqgzcubniinwoc.supabase.co/functions/v1/razorpay-webhook
+https://pibmsdpxvqkbvgdjpips.supabase.co/functions/v1/razorpay-webhook
 ```
-(No change needed - points to Supabase Edge Function)
+(Updated to new Supabase project)
 
 #### 4. PayPal Webhook URL (PayPal Developer Dashboard)
 ```
-https://yjdcshkqgzcubniinwoc.supabase.co/functions/v1/paypal-webhook
+https://pibmsdpxvqkbvgdjpips.supabase.co/functions/v1/paypal-webhook
 ```
-(No change needed)
+(Updated to new Supabase project)
 
 #### 5. Video Generation Server
 - Deploy separately (Docker/VPS/Cloudflare Workers AI if rewritten)
